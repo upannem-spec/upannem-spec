@@ -1,0 +1,724 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My AI Portfolio</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111111;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #111111;
+            border-bottom: 1px solid #333333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #00ff88;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero-text small {
+            color: #00ff88;
+            font-size: 16px;
+        }
+
+        .hero-text h1 {
+            font-size: 70px;
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .hero-text h1 span {
+            color: #00ff88;
+        }
+
+        .hero-text p {
+            color: #aaaaaa;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #00ff88;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background: #ffffff;
+        }
+
+        /* AI BOX */
+
+        .ai-box {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #00ff88;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.25);
+        }
+
+        .ai-box-inner {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: #00ff88;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        /* COMMON SECTION */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .title {
+            margin-bottom: 45px;
+        }
+
+        .title small {
+            color: #00ff88;
+        }
+
+        .title h2 {
+            font-size: 45px;
+            margin-top: 5px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #181818;
+        }
+
+        .about-content {
+            max-width: 850px;
+            font-size: 19px;
+            color: #bbbbbb;
+        }
+
+        .about-content strong {
+            color: #ffffff;
+        }
+
+        /* SKILLS */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 25px;
+            background: #181818;
+            border: 1px solid #333333;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .skill:hover {
+            border-color: #00ff88;
+        }
+
+        .skill h3 {
+            color: #00ff88;
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: #888888;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            background: #181818;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            padding: 30px;
+            background: #111111;
+            border: 1px solid #333333;
+            border-radius: 8px;
+        }
+
+        .project:hover {
+            border-color: #00ff88;
+        }
+
+        .project-number {
+            color: #00ff88;
+            font-size: 14px;
+        }
+
+        .project h3 {
+            font-size: 28px;
+            margin: 15px 0;
+        }
+
+        .project p {
+            color: #999999;
+            margin-bottom: 20px;
+        }
+
+        .project a {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* EXPERIENCE */
+
+        .experience-item {
+            padding: 25px 0;
+            border-bottom: 1px solid #333333;
+            max-width: 850px;
+        }
+
+        .experience-item h3 {
+            color: #00ff88;
+            font-size: 24px;
+        }
+
+        .experience-item span {
+            color: #666666;
+            font-size: 14px;
+        }
+
+        .experience-item p {
+            color: #999999;
+            margin-top: 10px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            background: #00ff88;
+            color: #000000;
+        }
+
+        .contact .title small {
+            color: #000000;
+        }
+
+        .contact h2 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            margin-bottom: 25px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            background: #000000;
+            color: #777777;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 70px;
+            }
+
+            .hero-text h1 {
+                font-size: 50px;
+            }
+
+            .ai-box {
+                width: 230px;
+                height: 230px;
+            }
+
+            .ai-box-inner {
+                width: 170px;
+                height: 170px;
+                font-size: 24px;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 40px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .hero {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .title h2 {
+                font-size: 35px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            YOUR.AI
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-text">
+
+            <small>HELLO, I AM</small>
+
+            <h1>
+                YOUR<br>
+                <span>NAME.</span>
+            </h1>
+
+            <p>
+                AI Developer & Creative Technologist.
+                I build intelligent applications, modern websites
+                and AI-powered digital experiences.
+            </p>
+
+            <a href="#projects" class="button">
+                VIEW MY WORK
+            </a>
+
+        </div>
+
+
+        <div class="ai-box">
+
+            <div class="ai-box-inner">
+                AI<br>
+                DEVELOPER
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="title">
+            <small>01 / ABOUT</small>
+            <h2>WHO I AM</h2>
+        </div>
+
+        <div class="about-content">
+
+            <p>
+                I'm a <strong>developer passionate about Artificial
+                Intelligence, software and design.</strong>
+            </p>
+
+            <br>
+
+            <p>
+                I enjoy creating useful digital products by combining
+                modern web technologies with AI. My goal is to make
+                complicated technology simple and accessible.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="title">
+            <small>02 / SKILLS</small>
+            <h2>WHAT I DO</h2>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill">
+                <h3>AI / ML</h3>
+                <p>Artificial Intelligence and Machine Learning</p>
+            </div>
+
+            <div class="skill">
+                <h3>PYTHON</h3>
+                <p>AI applications and backend development</p>
+            </div>
+
+            <div class="skill">
+                <h3>LLMs</h3>
+                <p>Large Language Model applications</p>
+            </div>
+
+            <div class="skill">
+                <h3>WEB</h3>
+                <p>Modern responsive websites</p>
+            </div>
+
+            <div class="skill">
+                <h3>JAVASCRIPT</h3>
+                <p>Interactive web applications</p>
+            </div>
+
+            <div class="skill">
+                <h3>REACT</h3>
+                <p>Modern frontend development</p>
+            </div>
+
+            <div class="skill">
+                <h3>APIs</h3>
+                <p>Connecting applications and AI services</p>
+            </div>
+
+            <div class="skill">
+                <h3>AUTOMATION</h3>
+                <p>Automating repetitive workflows</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section class="projects" id="projects">
+
+        <div class="title">
+            <small>03 / PROJECTS</small>
+            <h2>MY WORK</h2>
+        </div>
+
+        <div class="project-container">
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>AI CHATBOT</h3>
+
+                <p>
+                    An intelligent chatbot that uses AI to understand
+                    questions and provide useful responses.
+                </p>
+
+                <a href="#">
+                    VIEW PROJECT →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>AI IMAGE ANALYZER</h3>
+
+                <p>
+                    An AI application that analyzes images and extracts
+                    meaningful information.
+                </p>
+
+                <a href="#">
+                    VIEW PROJECT →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 03
+                </div>
+
+                <h3>AI CONTENT TOOL</h3>
+
+                <p>
+                    A content generation application designed to help
+                    users create text using AI.
+                </p>
+
+                <a href="#">
+                    VIEW PROJECT →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 04
+                </div>
+
+                <h3>AUTOMATION SYSTEM</h3>
+
+                <p>
+                    A workflow automation system that connects APIs
+                    and intelligent services.
+                </p>
+
+                <a href="#">
+                    VIEW PROJECT →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section id="experience">
+
+        <div class="title">
+            <small>04 / EXPERIENCE</small>
+            <h2>MY JOURNEY</h2>
+        </div>
+
+        <div class="experience-item">
+
+            <h3>AI Developer</h3>
+
+            <span>2025 - PRESENT</span>
+
+            <p>
+                Building AI-powered applications, automation tools
+                and intelligent software.
+            </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <h3>Web Developer</h3>
+
+            <span>2023 - 2025</span>
+
+            <p>
+                Developed responsive websites and modern web
+                applications.
+            </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <h3>Student Developer</h3>
+
+            <span>2022 - 2023</span>
+
+            <p>
+                Started learning programming, web development and
+                artificial intelligence.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div class="title">
+            <small>05 / CONTACT</small>
+        </div>
+
+        <h2>
+            LET'S BUILD<br>
+            SOMETHING.
+        </h2>
+
+        <p>
+            Have an idea or project? Let's work together.
+        </p>
+
+        <a
+            href="mailto:hello@example.com"
+            class="contact-button">
+            EMAIL ME
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            © 2026 YOUR NAME
+        </div>
+
+        <div>
+            AI • CODE • DESIGN
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
