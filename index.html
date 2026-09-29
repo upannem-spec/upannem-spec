@@ -1,24 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>UDAY | AI Brutalist Portfolio</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            color: #111;
+            line-height: 1.4;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #ff3b30;
+            border-bottom: 5px solid #111;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        nav a {
+            color: #111;
+            text-decoration: none;
+            font-weight: 800;
+            margin-left: 20px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 60px 30px;
+            border-bottom: 5px solid #111;
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 10vw, 150px);
+            line-height: 0.85;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -8px;
+        }
+
+        .hero h1 span {
+            color: #ff3b30;
+            -webkit-text-stroke: 3px #111;
+        }
+
+        .hero-text {
+            margin-top: 40px;
+            max-width: 650px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .ai-box {
+            align-self: center;
+            background: #b7ff00;
+            border: 5px solid #111;
+            padding: 30px;
+            box-shadow: 15px 15px 0 #111;
+        }
+
+        .ai-box h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .ai-box p {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 25px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            border: 3px solid #111;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .button:hover {
+            background: white;
+            color: #111;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+        section {
+            padding: 80px 30px;
+            border-bottom: 5px solid #111;
+        }
+
+        .section-title {
+            font-size: clamp(45px, 8vw, 100px);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -5px;
+            margin-bottom: 50px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .about-text {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .about-card {
+            background: #00e5ff;
+            border: 5px solid #111;
+            padding: 30px;
+            box-shadow: 12px 12px 0 #111;
+        }
+
+        .about-card h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 15px 20px;
+            border: 4px solid #111;
+            background: white;
+            font-weight: 900;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .skill:nth-child(2n) {
+            background: #b7ff00;
+        }
+
+        .skill:nth-child(3n) {
+            background: #ff3b30;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project {
+            border: 5px solid #111;
+            background: white;
+            padding: 30px;
+            min-height: 300px;
+            box-shadow: 12px 12px 0 #111;
+        }
+
+        .project:nth-child(1) {
+            background: #b7ff00;
+        }
+
+        .project:nth-child(2) {
+            background: #00e5ff;
+        }
+
+        .project:nth-child(3) {
+            background: #ff3b30;
+        }
+
+        .project h3 {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .project p {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .project a {
+            color: #111;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           AI TERMINAL
+        ========================= */
+        .terminal {
+            background: #111;
+            color: #b7ff00;
+            border: 5px solid #111;
+            padding: 30px;
+            font-family: "Courier New", monospace;
+            font-size: 18px;
+            box-shadow: 15px 15px 0 #ff3b30;
+        }
+
+        .terminal-title {
+            color: white;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #b7ff00;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+        .contact {
+            background: #ff3b30;
+        }
+
+        .contact h2 {
+            font-size: clamp(50px, 10vw, 130px);
+            line-height: 0.9;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -6px;
+        }
+
+        .contact p {
+            font-size: 25px;
+            font-weight: 800;
+            margin-top: 30px;
+        }
+
+        .contact a {
+            color: #111;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            padding: 25px 30px;
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 800;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Hello, World!</h1>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">UDAY</div>
 
-    <h2>Welcome to My Website</h2>
+        <div>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-    <p>This is my first HTML webpage.</p>
 
-    <a href="https://example.com">Visit Example</a>
+    <!-- HERO -->
+    <header class="hero">
 
-    <br><br>
+        <div>
+            <h1>
+                Creative<br>
+                <span>AI</span><br>
+                Developer
+            </h1>
 
-    <button>Click Me</button>
+            <p class="hero-text">
+                I build bold digital experiences using code,
+                artificial intelligence and unconventional design.
+            </p>
+
+            <a href="#projects" class="button">
+                View My Work →
+            </a>
+        </div>
+
+        <div class="ai-box">
+            <h2>AI // ONLINE</h2>
+
+            <p>SYSTEM STATUS: ACTIVE</p>
+            <p>DESIGN: BRUTALIST</p>
+            <p>CREATIVITY: 100%</p>
+            <p>COFFEE: REQUIRED</p>
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about">
+
+            <div class="about-text">
+                Designer + Developer + AI Explorer.
+            </div>
+
+            <div class="about-card">
+
+                <h3>WHO IS UDAY?</h3>
+
+                <p>
+                    I'm Uday, a creative developer who enjoys
+                    turning ideas into interactive digital experiences.
+                    I experiment with AI, web technologies,
+                    creative coding and bold visual systems.
+                </p>
+
+                <br>
+
+                <p>
+                    My approach is simple:
+                    make things useful, make things interesting,
+                    and don't make them boring.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Python</div>
+            <div class="skill">AI</div>
+            <div class="skill">UI/UX</div>
+            <div class="skill">Figma</div>
+            <div class="skill">Git</div>
+            <div class="skill">Creative Coding</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects">
+
+            <article class="project">
+
+                <h3>01 / AI APP</h3>
+
+                <p>
+                    An experimental AI-powered web application
+                    designed to make complex tasks easier.
+                </p>
+
+                <a href="#">View Project →</a>
+
+            </article>
+
+
+            <article class="project">
+
+                <h3>02 / WEB LAB</h3>
+
+                <p>
+                    A brutalist website experiment combining
+                    typography, animation and interactive elements.
+                </p>
+
+                <a href="#">View Project →</a>
+
+            </article>
+
+
+            <article class="project">
+
+                <h3>03 / CREATIVE AI</h3>
+
+                <p>
+                    A collection of experiments exploring how
+                    artificial intelligence can be used in design.
+                </p>
+
+                <a href="#">View Project →</a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- AI TERMINAL -->
+    <section>
+
+        <h2 class="section-title">AI Terminal</h2>
+
+        <div class="terminal">
+
+            <div class="terminal-title">
+                UDAY@PORTFOLIO:~$
+            </div>
+
+            <p>> initializing creative_engine...</p>
+            <p>> loading neural_interface...</p>
+            <p>> analyzing ideas...</p>
+            <p>> generating possibilities...</p>
+            <p>> system ready.</p>
+
+            <br>
+
+            <p>> <span class="cursor"></span></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+
+        <h2>
+            LET'S<br>
+            BUILD<br>
+            SOMETHING.
+        </h2>
+
+        <p>
+            Email:
+            <a href="mailto:hello@example.com">
+                hello@example.com
+            </a>
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div>© 2026 UDAY</div>
+
+        <div>BUILT WITH HTML + CSS + AI</div>
+
+    </footer>
 
 </body>
+
 </html>
